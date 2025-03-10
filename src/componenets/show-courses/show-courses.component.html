@@ -1,0 +1,29 @@
+
+
+
+@if(courses.length > 0) {
+<h1>רשימת קורסים</h1>
+<ul>
+    @for(c of courses; track c.id) {
+    <li>
+        <h2>{{ c.title }}</h2>
+        <p>{{ c.description }} - תאור הקורס</p>
+        <div class="buttons">
+            @if(userRole === "teacher") {
+            <button (click)="delete(c.id)">מחק</button>
+            <button (click)="editCourse(c.id)">ערוך</button>
+            }
+            @if(userRole === "student") {
+            @if(!isEnoled(c.id)) {
+            <button (click)="AddPerson(c.id)">Enroll</button>
+            }
+            @else {
+            <button (click)="deletePerson(c.id)">Unenroll</button>
+            }
+            }
+            <button (click)="showLesson(c.id)">הצג שיעור</button>
+        </div>
+    </li>
+    }
+</ul>
+}

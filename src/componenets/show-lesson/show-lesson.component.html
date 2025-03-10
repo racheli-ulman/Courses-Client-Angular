@@ -1,0 +1,30 @@
+@if(lessons.length > 0){
+<h1>רשימת שיעורים</h1>
+<ul>
+    @for(l of lessons; track l.title){
+    <li>
+        <h2>{{ l.title }}</h2>
+        <p>{{ l.content }} תוכן השיעור </p>
+        <!-- <div class="buttons"> -->
+        @if(userRole==="teacher"){
+        <button (click)="delete(l.id)">מחק שיעור</button>
+        <button (click)="editLesson(l.id)">ערוך שיעור</button>
+        }
+        <!-- <button (click)="CourseLesson(c.id)">לצפיה שעורי הקורס</button> -->
+        <!-- @if(role==="student"){ -->
+                <!-- <button (click)="AddPerson()">הוסף</button> -->
+                <!-- <button (click)="deletePerson()">הסר</button> -->
+                <!-- } -->
+        <!-- <button (click)="showLesson(c.id)">הצג שיעור</button> -->
+
+        <!-- </div> -->
+    </li>
+    }
+</ul>
+
+}
+@if(userRole==="teacher"){
+<button (click)="addLesson()">הוסף שיעור</button>
+}
+<!-- <button (click)="addCourse()">הוספה</button> -->
+

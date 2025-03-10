@@ -1,0 +1,14 @@
+<form [formGroup]="editLessonForm" (ngSubmit)="onSubmit()">
+    <div>
+        <label for="title">Lesson title:</label>
+        <input type="text" id="title" formControlName="title" />
+    </div>
+
+    <div>
+        <label for="content">content:</label>
+        <input type="text" id="content" formControlName="content" />
+    </div>
+
+
+    <button type="submit" [disabled]="!editLessonForm.valid">edit</button>
+</form>
