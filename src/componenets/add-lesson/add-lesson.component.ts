@@ -6,7 +6,7 @@ import { LessonsService } from '../../services/lessons.service';
 
 @Component({
   selector: 'app-add-lesson',
-  imports: [ReactiveFormsModule, RouterOutlet],
+  imports: [ReactiveFormsModule],
   templateUrl: './add-lesson.component.html',
   styleUrl: './add-lesson.component.css'
 })
