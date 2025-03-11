@@ -19,10 +19,8 @@ export class ShowCoursesComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    console.log("show-couse");
     this.coursesService.getCourses().subscribe({
       next: (data) => {
-        console.log(data);
         this.courses = data;
       },
       error: (error) => {
@@ -31,12 +29,10 @@ export class ShowCoursesComponent implements OnInit {
       }
     });
     this.loadCoursesByStudent()
-    console.log('this.studentCourse', this.studentcourses);
   }
   delete(id: number) {
     this.coursesService.deleteCourse(id).subscribe({
       next: (data) => {
-        console.log('data ' + data);
 
         this.courses = this.courses.filter(c => c.id != id);
       },
@@ -60,20 +56,15 @@ export class ShowCoursesComponent implements OnInit {
 
   // }
   showLesson(id: number) {
-    console.log("id show lessons" + id);
-    console.log(this.userRole);
     this.router.navigate(['/show-lesson', id])
   }
   loadCoursesByStudent(): void {
     const studentId = localStorage.getItem('userId');
-    console.log(studentId+"studentId");
     
     if (studentId) {
       this.coursesService.getStudentCourses(studentId).subscribe({
         next: (data) => {
-          this.studentcourses = data;
-          console.log(this.studentcourses+"sghjkdfghjkldfghjkdfghjkll;");
-          
+          this.studentcourses = data;  
         },
         error: (error) => {
           console.error('Error fetching student courses:', error);
@@ -88,8 +79,6 @@ export class ShowCoursesComponent implements OnInit {
       console.error('User not logged in.');
       return;
     }
-    console.log(userId, 'userId');
-    console.log(courseId, 'courseId');
     this.coursesService.enrollStudent(courseId, userId).subscribe({
       next: () => {
         console.log('Student enrolled successfully');
@@ -110,7 +99,7 @@ export class ShowCoursesComponent implements OnInit {
     this.coursesService.unenrollStudent(courseId, userId).subscribe({
       next: () => {
         console.log('Student unenrolled successfully');
-        this.loadCoursesByStudent(); // רענון רשימת הקורסים של הסטודנט
+        this.loadCoursesByStudent(); 
 
       },
       error: (error) => {
@@ -119,10 +108,7 @@ export class ShowCoursesComponent implements OnInit {
     });
   }
 
-  isEnoled(courseId: number): boolean {
-    console.log(this.studentcourses+"studentcourses");
-    
-    console.log(courseId+"course?Id");
+  isEnoled(courseId: number): boolean {    
     return this.studentcourses.some(course => course.id === courseId);
   }
 }

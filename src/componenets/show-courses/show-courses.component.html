@@ -1,6 +1,3 @@
-
-
-
 @if(courses.length > 0) {
 <h1>רשימת קורסים</h1>
 <ul>
@@ -15,10 +12,10 @@
             }
             @if(userRole === "student") {
             @if(!isEnoled(c.id)) {
-            <button (click)="AddPerson(c.id)">Enroll</button>
+            <button (click)="AddPerson(c.id)">לרישום לקורס</button>
             }
             @else {
-            <button (click)="deletePerson(c.id)">Unenroll</button>
+            <button (click)="deletePerson(c.id)">להתנתקות מהקורס</button>
             }
             }
             <button (click)="showLesson(c.id)">הצג שיעור</button>

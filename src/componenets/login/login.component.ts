@@ -5,9 +5,20 @@ import { Router } from '@angular/router';
 import { UserService } from '../../services/user.service';
 import { MatDialogRef } from '@angular/material/dialog';
 
+// import { ReactiveFormsModule } from '@angular/forms';
+import { MatButtonModule } from '@angular/material/button';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatIconModule } from '@angular/material/icon';
+import { MatError } from '@angular/material/form-field';
+
 @Component({
   selector: 'app-login',
-  imports: [ReactiveFormsModule],
+  imports: [ReactiveFormsModule, MatButtonModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatIconModule,  
+    ],
   templateUrl: './login.component.html',
   styleUrl: './login.component.css'
 })

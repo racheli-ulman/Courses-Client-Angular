@@ -1,0 +1,15 @@
+.example-form {
+    width: 100%;
+    max-width: 400px;
+    margin: auto;
+    background-color:rgb(233, 181, 139);
+  }
+  
+  .example-full-width {
+    width: 100%;
+    margin-bottom: 16px;
+  }
+  
+  button {
+    margin-top: 16px;
+  }

@@ -25,7 +25,6 @@ export class ShowLessonComponent {
 
       this.LessonService.getLessonsByCourseId(this.courseId).subscribe({
         next: (data) => {
-          console.log(data);
           this.lessons = data;
         },
         error: (error) => {
@@ -40,7 +39,6 @@ export class ShowLessonComponent {
     if (this.courseId)
       this.LessonService.deleteLesson(id, this.courseId).subscribe({
         next: (data) => {
-          console.log('data ' + data);
 
           this.lessons = this.lessons.filter(l => l.id != id);
         },

@@ -1,4 +1,4 @@
-<form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+<!-- <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
     <div>
       <label for="name">Full Name:</label>
       <input type="text" id="name" formControlName="name" />
@@ -24,4 +24,39 @@
     </div>  
     <button type="submit" [disabled]="!registerForm.valid">Register</button>
   </form>
+   -->
+
+
+
+
+   <form [formGroup]="registerForm" (ngSubmit)="onSubmit()" class="example-form">
+    <mat-form-field class="example-full-width">
+      <mat-label>Full Name</mat-label>
+      <input matInput type="text" id="name" formControlName="name" placeholder="Enter your full name">
+      <mat-icon matSuffix>person</mat-icon>
+    </mat-form-field>
   
+    <mat-form-field class="example-full-width">
+      <mat-label>Email</mat-label>
+      <input matInput type="email" id="email" formControlName="email" placeholder="Enter your email">
+      <mat-icon matSuffix>email</mat-icon>
+    </mat-form-field>
+  
+    <mat-form-field class="example-full-width">
+      <mat-label>Password</mat-label>
+      <input matInput type="password" id="password" formControlName="password" placeholder="Enter your password">
+      <mat-icon matSuffix>lock</mat-icon>
+    </mat-form-field>
+  
+    <mat-form-field class="example-full-width">
+      <mat-label>Role</mat-label>
+      <mat-select id="role" formControlName="role">
+        <mat-option value="student">Student</mat-option>
+        <mat-option value="teacher">Teacher</mat-option>
+      </mat-select>
+    </mat-form-field>
+  
+    <div class="example-full-width">
+      <button mat-raised-button color="primary" type="submit" [disabled]="!registerForm.valid">Register</button>
+    </div>
+  </form>

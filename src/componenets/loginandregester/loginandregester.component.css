@@ -1,0 +1,23 @@
+.auth-container {
+    width: 100%;
+    max-width: 400px;
+    margin: auto;
+    text-align: center;
+    /* background-color: palevioletred; */
+}
+
+.buttons-container {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 16px;
+    background-color: rgb(233, 181, 139);
+}
+
+button {
+    margin: 8px;
+    /*  */
+}
+
+h2 {
+    color: rgb(233, 181, 139);
+}
